@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Cocoon Flex Spaces — Discovery Portfolio · Casa Bank</title>
+<meta name="description" content="A landmarked 1908 bank hall in Downtown Brooklyn — 17,676 sq ft, up to 2,500 guests. Part of the Cocoon Flex Spaces Discovery Portfolio." />
+<style>
+  /* ============================================================
+     COCOON BRAND TOKENS
+     Primary: #F54029 (Brilliance / terracotta) + #F5F2E8 (Natural / cream)
+     Accent:  #275453 (Clarity / deep teal), #000000 (Black)
+     Type:    Helvetica Neue — Bold for titles, Medium for headlines, Regular for body
+     ============================================================ */
+  :root {
+    --cream: #F5F2E8;
+    --cream-deep: #ECE7D6;
+    --cream-warm: #EFE9D7;
+    --terracotta: #F54029;
+    --terracotta-soft: #E8593F;
+    --terracotta-deep: #C8331E;
+    --teal: #275453;
+    --teal-soft: #355F5E;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-mute: #6B6B6B;
+    --rule: rgba(26,26,26,0.12);
+    --rule-soft: rgba(26,26,26,0.06);
+    --max: 1280px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.55;
+  }
+
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: var(--terracotta); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* TYPE SCALE */
+  .superhead {
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    font-size: 11px;
+    color: var(--terracotta);
+  }
+  .title {
+    font-weight: 700;
+    font-size: clamp(40px, 7vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -0.025em;
+    margin: 0;
+  }
+  .title .accent { color: var(--terracotta); }
+  .headline {
+    font-weight: 500;
+    font-size: clamp(24px, 3.2vw, 40px);
+    line-height: 1.2;
+    letter-spacing: -0.012em;
+    margin: 0 0 0.6em;
+  }
+  .lede {
+    font-weight: 400;
+    font-size: clamp(18px, 1.5vw, 22px);
+    line-height: 1.45;
+    color: var(--ink-soft);
+    margin: 0 0 1em;
+  }
+  .body { font-size: 17px; line-height: 1.6; }
+  .caption {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ink-soft);
+  }
+  .eyebrow {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-weight: 700;
+    color: var(--terracotta);
+    margin-bottom: 12px;
+  }
+
+  /* SECTION FRAME */
+  section {
+    padding: clamp(64px, 10vh, 140px) clamp(24px, 5vw, 80px);
+    max-width: var(--max);
+    margin: 0 auto;
+  }
+  section + section { border-top: 1px solid var(--rule); }
+  section.tight { padding-top: clamp(48px, 6vh, 80px); padding-bottom: clamp(48px, 6vh, 80px); }
+  section.full { max-width: none; padding-left: 0; padding-right: 0; }
+  section.full > .inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 80px);
+  }
+  section.cream-deep { background: var(--cream-deep); }
+
+  .logomark { width: 28px; height: 28px; flex: 0 0 auto; }
+  .wordmark { height: 16px; width: auto; flex: 0 0 auto; }
+
+  /* TOP BAR */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(245, 242, 232, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .topbar-inner {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 14px clamp(24px, 5vw, 80px);
+    display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  }
+  .topbar-brand { display: flex; align-items: center; gap: 18px; font-size: 13px; }
+  .topbar-brand .cocoon { display: flex; align-items: center; gap: 10px; padding-right: 18px; }
+  .topbar-brand .divider { width: 1px; height: 22px; background: var(--rule); flex: 0 0 auto; }
+  .topbar-brand .partner {
+    font-weight: 600; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--ink);
+  }
+  .topbar-meta {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--ink-soft); font-weight: 600;
+  }
+  @media (max-width: 700px) { .topbar-meta { display: none; } }
+
+  /* COVER */
+  .cover {
+    position: relative; background: var(--cream);
+    padding: 0; max-width: none; overflow: hidden;
+    border-bottom: 1px solid var(--rule);
+  }
+  .cover-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    min-height: 640px;
+  }
+  .cover-text {
+    padding: clamp(40px, 6vw, 80px);
+    display: flex; flex-direction: column; justify-content: space-between; gap: 32px;
+    background: var(--cream);
+  }
+  .cover-image {
+    position: relative; overflow: hidden;
+    background: var(--cream-deep);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cover-image img { width: 100%; height: 100%; object-fit: cover; }
+  .cover-meta {
+    display: grid; gap: 6px; margin-top: 32px;
+    font-size: 13px; line-height: 1.65; color: var(--ink-soft);
+  }
+  .cover-meta strong { color: var(--ink); font-weight: 600; }
+  @media (max-width: 800px) { .cover-grid { grid-template-columns: 1fr; min-height: auto; } }
+
+  /* TWO-COL */
+  .two-col {
+    display: grid; grid-template-columns: 1fr 1.4fr;
+    gap: clamp(40px, 6vw, 96px); align-items: start;
+  }
+  .two-col.balanced { grid-template-columns: 1fr 1fr; }
+  @media (max-width: 800px) { .two-col, .two-col.balanced { grid-template-columns: 1fr; } }
+
+  /* CALLOUT BAR */
+  .callout {
+    background: var(--terracotta);
+    color: #FFF;
+    padding: clamp(40px, 6vw, 80px);
+    margin: 0; max-width: none;
+  }
+  .callout.teal { background: var(--teal); }
+  .callout.ink  { background: var(--ink); }
+  .callout .inner {
+    max-width: var(--max); margin: 0 auto;
+    padding: 0 clamp(24px, 5vw, 80px);
+  }
+  .callout .title { color: #FFF; }
+  .callout .superhead { color: rgba(255,255,255,0.88); }
+  .callout .lede { color: rgba(255,255,255,0.92); }
+
+  /* DIVIDER LABEL */
+  .divider-label {
+    display: grid; grid-template-columns: auto 1fr auto;
+    gap: 24px; align-items: center; margin: 0 0 32px;
+  }
+  .divider-label .text {
+    font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+    font-weight: 700; color: var(--terracotta);
+  }
+  .divider-label .line { height: 1px; background: var(--rule); }
+
+  /* STATS */
+  .stat-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 24px; margin-top: 32px;
+  }
+  .stat .num {
+    font-size: clamp(36px, 4vw, 56px);
+    font-weight: 700; letter-spacing: -0.02em; line-height: 1;
+    color: var(--terracotta);
+  }
+  .stat .label {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--ink-soft); margin-top: 8px; font-weight: 600;
+  }
+  @media (max-width: 700px) { .stat-grid { grid-template-columns: 1fr 1fr; } }
+
+  /* NOTE BOX */
+  .note {
+    background: #FFF;
+    border-left: 3px solid var(--terracotta);
+    padding: 32px 36px;
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .note p { margin: 0 0 14px; }
+  .note p:last-child { margin-bottom: 0; }
+  .note .signature {
+    margin-top: 18px; font-size: 12px;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: var(--terracotta); font-weight: 700;
+  }
+
+  /* VIDEO */
+  .video-wrap {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%;
+    background: var(--ink);
+    border: 1px solid var(--rule);
+    overflow: hidden;
+  }
+  .video-wrap iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* MOSAIC */
+  .mosaic-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr 1fr;
+    grid-auto-rows: 240px;
+    gap: 14px;
+  }
+  .mosaic-grid .frame {
+    position: relative;
+    overflow: hidden;
+    background: var(--cream-deep);
+    border: 1px solid var(--rule);
+  }
+  .mosaic-grid .frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .mosaic-grid .frame.hero { grid-column: span 2; grid-row: span 2; }
+  .mosaic-grid .frame.tall { grid-row: span 2; }
+  .mosaic-grid .frame.wide { grid-column: span 2; }
+  @media (max-width: 900px) {
+    .mosaic-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
+    .mosaic-grid .frame.hero { grid-column: span 2; grid-row: span 2; }
+    .mosaic-grid .frame.tall { grid-row: span 1; }
+    .mosaic-grid .frame.wide { grid-column: span 2; }
+  }
+  @media (max-width: 560px) {
+    .mosaic-grid { grid-template-columns: 1fr; grid-auto-rows: 240px; }
+    .mosaic-grid .frame.hero, .mosaic-grid .frame.tall,
+    .mosaic-grid .frame.wide { grid-column: auto; grid-row: auto; }
+  }
+
+  /* FLOOR SPEC LIST */
+  .specs {
+    display: grid; gap: 0;
+    border-top: 1px solid var(--rule);
+    margin-top: 16px;
+  }
+  .specs .space {
+    display: grid; grid-template-columns: 1fr auto; gap: 16px;
+    padding: 18px 0; border-bottom: 1px solid var(--rule-soft);
+    align-items: baseline;
+  }
+  .specs .space .name {
+    font-size: 16px; font-weight: 700; letter-spacing: -0.005em;
+  }
+  .specs .space .name span {
+    display: block; font-weight: 400;
+    color: var(--ink-soft); font-size: 13px; margin-top: 4px; line-height: 1.5;
+  }
+  .specs .space .dims {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.14em;
+    font-weight: 700; color: var(--terracotta);
+    white-space: nowrap; text-align: right; line-height: 1.7;
+  }
+  .plan-frame {
+    background: #FFF;
+    border: 1px solid var(--rule);
+    padding: clamp(16px, 2vw, 28px);
+    margin-top: 24px;
+  }
+  .plan-frame img { margin: 0 auto; max-height: 640px; width: auto; max-width: 100%; }
+
+  /* WALK STEPS / DECISION CARDS */
+  .walk {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 32px; margin-top: 48px;
+  }
+  .walk .step {
+    border-top: 2px solid var(--terracotta);
+    padding-top: 24px;
+  }
+  .callout .walk .step { border-top-color: rgba(255,255,255,0.5); }
+  .walk .step-num {
+    font-size: 12px; text-transform: uppercase; letter-spacing: 0.18em;
+    color: var(--terracotta); font-weight: 700; margin-bottom: 10px;
+  }
+  .callout .walk .step-num { color: rgba(255,255,255,0.78); }
+  .walk .step h4 {
+    font-size: 22px; font-weight: 600; margin: 0 0 8px;
+    letter-spacing: -0.01em;
+  }
+  .walk .step p {
+    margin: 0; color: var(--ink-soft); font-size: 15px; line-height: 1.55;
+  }
+  .callout .walk .step h4 { color: #FFF; }
+  .callout .walk .step p { color: rgba(255,255,255,0.85); }
+  @media (max-width: 800px) { .walk { grid-template-columns: 1fr; } }
+
+  /* BUTTON */
+  .btn {
+    display: inline-block;
+    background: var(--terracotta);
+    color: #FFF;
+    font-weight: 700;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    padding: 16px 28px;
+    border: 0;
+    cursor: pointer;
+  }
+  .btn:hover { background: var(--terracotta-deep); text-decoration: none; }
+  .btn-sub {
+    display: block;
+    margin-top: 12px;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-mute);
+  }
+  .callout .btn-sub { color: rgba(255,255,255,0.62); }
+
+  /* EXPANDABLE MEDIA / LIGHTBOX */
+  .mosaic-grid .frame img,
+  .plan-frame img,
+  .cover-image img { cursor: zoom-in; }
+  .video-shell { position: relative; }
+  .video-expand {
+    position: absolute; right: 14px; bottom: 14px; z-index: 2;
+    background: rgba(26,26,26,0.82);
+    color: #FFF;
+    border: 1px solid rgba(255,255,255,0.35);
+    font-family: inherit;
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    padding: 10px 16px;
+    cursor: pointer;
+  }
+  .video-expand:hover { background: var(--terracotta); border-color: var(--terracotta); }
+  .lightbox {
+    position: fixed; inset: 0; z-index: 100;
+    background: rgba(26,26,26,0.95);
+    display: none;
+    align-items: center; justify-content: center;
+    padding: 4vmin;
+    cursor: zoom-out;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox .lb-figure { margin: 0; text-align: center; }
+  .lightbox .lb-figure img {
+    max-width: 92vw; max-height: 86vh;
+    width: auto; height: auto;
+    margin: 0 auto;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  }
+  .lightbox .lb-caption {
+    margin-top: 16px;
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--cream);
+  }
+  .lightbox .lb-frame {
+    width: min(92vw, calc(16 / 9 * 82vh));
+    cursor: default;
+  }
+  .lightbox .lb-video {
+    position: relative; width: 100%; padding-top: 56.25%;
+    background: #000;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.5);
+  }
+  .lightbox .lb-video iframe {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; border: 0;
+  }
+  .lightbox .lb-close {
+    position: absolute; top: 20px; right: 26px;
+    font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--cream);
+    cursor: pointer;
+  }
+  .lightbox .lb-close:hover { color: var(--terracotta); }
+
+  /* FOOTER */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: clamp(48px, 6vw, 80px) clamp(24px, 5vw, 80px);
+  }
+  footer .inner {
+    max-width: var(--max); margin: 0 auto;
+    display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px;
+  }
+  footer .sig p { margin: 0 0 12px; }
+  footer .sig .name {
+    font-size: 18px; font-weight: 700; margin-top: 18px; color: #FFF;
+  }
+  footer .sig .role {
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--terracotta); font-weight: 700; margin-top: 4px;
+  }
+  footer .meta {
+    font-size: 12px; line-height: 1.7;
+    text-transform: uppercase; letter-spacing: 0.14em;
+    color: rgba(255,255,255,0.62);
+  }
+  footer .meta strong { color: #FFF; }
+  footer a { color: var(--cream); text-decoration: underline; }
+  @media (max-width: 700px) {
+    footer .inner { grid-template-columns: 1fr; }
+  }
+
+  /* ============================================================
+     CASA BANK ADDITIONS (no-photography build)
+     ============================================================ */
+  .cover-image.drawing {
+    background: var(--cream-deep);
+    padding: clamp(32px, 5vw, 64px);
+  }
+  .cover-image.drawing svg { width: 100%; height: auto; max-height: 560px; }
+  .hall-caption {
+    position: absolute; left: clamp(24px, 3vw, 40px); bottom: clamp(20px, 3vw, 32px);
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.16em;
+    color: var(--ink-soft);
+  }
+
+  .video-placeholder {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 14px; text-align: center; padding: 24px;
+    background:
+      radial-gradient(ellipse at center, rgba(245,64,41,0.20), rgba(26,26,26,0) 60%),
+      var(--ink);
+    color: var(--cream);
+  }
+  .video-placeholder .play {
+    width: 72px; height: 72px; border-radius: 50%;
+    border: 2px solid rgba(245,242,232,0.7);
+    display: flex; align-items: center; justify-content: center;
+  }
+  .video-placeholder .play::after {
+    content: ""; margin-left: 6px;
+    border-left: 20px solid var(--cream);
+    border-top: 12px solid transparent; border-bottom: 12px solid transparent;
+  }
+  .video-placeholder .ph-title {
+    font-size: clamp(20px, 2.4vw, 30px); font-weight: 500; letter-spacing: -0.01em;
+  }
+  .video-placeholder .ph-sub {
+    font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.18em;
+    color: rgba(245,242,232,0.62);
+  }
+
+  .feature-list { display: grid; gap: 0; border-top: 1px solid var(--rule); }
+  .feature-list .f {
+    padding: 18px 0; border-bottom: 1px solid var(--rule-soft);
+    color: var(--ink-soft); font-size: 16px; line-height: 1.55;
+  }
+  .feature-list .f strong { color: var(--ink); display: block; font-size: 16px; margin-bottom: 2px; }
+
+  .cap-table { width: 100%; border-collapse: collapse; margin-top: 16px; font-size: 15px; }
+  .cap-table th {
+    text-align: left; font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.14em; color: var(--ink-soft);
+    padding: 0 12px 12px 0; border-bottom: 1px solid var(--rule);
+  }
+  .cap-table th.n, .cap-table td.n { text-align: right; }
+  .cap-table td {
+    padding: 16px 12px 16px 0; border-bottom: 1px solid var(--rule-soft);
+    font-variant-numeric: tabular-nums;
+  }
+  .cap-table td.space-name { font-weight: 700; }
+  .cap-table td.space-name span { display: block; font-weight: 400; font-size: 12px; color: var(--ink-mute); margin-top: 2px; }
+  .cap-table tr.total td { font-weight: 700; border-bottom: 0; border-top: 1px solid var(--rule); color: var(--terracotta); }
+  .tag {
+    display: inline-block; margin-left: 8px; padding: 2px 8px;
+    font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em;
+    color: var(--terracotta); border: 1px solid var(--terracotta);
+    vertical-align: middle;
+  }
+  .table-scroll { overflow-x: auto; }
+
+  .formats {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
+    margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.35);
+  }
+  .formats .fm {
+    padding: 22px 24px 22px 0; border-bottom: 1px solid rgba(255,255,255,0.22);
+  }
+  .formats .fm h4 { margin: 0 0 6px; font-size: 20px; font-weight: 600; color: #FFF; letter-spacing: -0.01em; }
+  .formats .fm p { margin: 0; font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.5; }
+  @media (max-width: 800px) { .formats { grid-template-columns: 1fr; } }
+  .video-wrap video, .lightbox .lb-video video {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    background: #000; object-fit: contain;
+  }
+  .mosaic-grid .frame img { cursor: zoom-in; }
+  @media (max-width: 800px) {
+    .cover-image.drawing { flex-direction: column; gap: 16px; }
+    .hall-caption { position: static; }
+  }
+  @media (max-width: 600px) {
+    .cap-table { font-size: 13px; }
+    .cap-table th:nth-child(2), .cap-table td:nth-child(2) { display: none; }
+    .cap-table th { font-size: 10px; letter-spacing: 0.08em; padding-right: 8px; }
+    .cap-table td { padding-right: 8px; }
+    .plan-frame { padding: 10px; }
+    .specs .space { grid-template-columns: 1fr; gap: 6px; }
+    .specs .space .dims { text-align: left; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     TOP BAR
+     ============================================================ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-brand">
+      <span class="cocoon">
+        <img class="logomark" src="img/cocoon/mark-128.png" alt="Cocoon" />
+        <img class="wordmark" src="img/cocoon/wordmark-320.png" alt="Cocoon Flex Spaces" />
+      </span>
+      <span class="divider"></span>
+      <span class="partner">Casa Bank</span>
+    </div>
+    <div class="topbar-meta">Discovery Portfolio &middot; October 2026</div>
+  </div>
+</div>
+
+<!-- ============================================================
+     COVER
+     ============================================================ -->
+<section class="cover full">
+  <div class="cover-grid">
+    <div class="cover-text">
+      <div>
+        <div class="superhead">Discovery Portfolio &middot; Downtown Brooklyn</div>
+        <h1 class="title">A landmark<br/>bank, built<br/>for <span class="accent">moments.</span></h1>
+        <p class="lede" style="margin-top:24px; max-width: 540px;">
+          A 1908 savings bank in Downtown Brooklyn, with a landmarked interior
+          and a 17,676 sq ft banking hall under an ornamental ceiling. It's now
+          available through Cocoon for runway, brand activations, showrooms,
+          large-format events and productions.
+        </p>
+      </div>
+      <div class="cover-meta">
+        <div><strong>Spaces</strong> &nbsp;·&nbsp; Main hall + mezzanine, vault and Prism (optional)</div>
+        <div><strong>Size</strong> &nbsp;·&nbsp; 17,676 sq ft main hall &middot; 23,378 sq ft in total</div>
+        <div><strong>Capacity</strong> &nbsp;·&nbsp; Up to 2,500 guests standing</div>
+        <div><strong>Managed by</strong> &nbsp;·&nbsp; Cocoon Flex Spaces</div>
+        <div><strong>Contact</strong> &nbsp;·&nbsp; Eduard Monteagudo Martín · <a href="mailto:eduard@cocoonflexspaces.com">eduard@cocoonflexspaces.com</a> &nbsp;·&nbsp; Sales Team · <a href="mailto:info@cocoonflexspaces.com">info@cocoonflexspaces.com</a></div>
+      </div>
+    </div>
+    <div class="cover-image">
+      <img src="img/venue/rotunda.jpg" alt="The rotunda: a ring of marble columns under the painted dome and coffered ceiling" />
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FILM
+     ============================================================ -->
+<section class="cream-deep full tight">
+  <div class="inner">
+    <div class="divider-label">
+      <span class="text">The venue on film</span>
+      <span class="line"></span>
+      <span class="text" style="color:var(--ink-soft);">01</span>
+    </div>
+    <h2 class="headline" style="max-width: 760px;">Walk through the bank.</h2>
+    <div class="video-shell">
+      <div class="video-wrap">
+        <video id="venue-film" controls playsinline preload="metadata" poster="img/venue/rotunda.jpg">
+          <source src="https://cocoonflexspaces.com/wp-content/uploads/2026/10/Historic-Bank-Venue-Brooklyn.mp4" type="video/mp4" />
+        </video>
+      </div>
+      <button class="video-expand" id="video-expand" type="button">Expand ⤢</button>
+    </div>
+    <p class="caption" style="margin-top: 16px; color: var(--ink-mute);">
+      Filmed by Cocoon Flex Spaces &middot;
+      <a href="https://cocoonflexspaces.com/wp-content/uploads/2026/10/Historic-Bank-Venue-Brooklyn.mp4" target="_blank" rel="noopener">Open the film in a new tab</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     PERSONAL NOTE
+     ============================================================ -->
+<section>
+  <div class="divider-label">
+    <span class="text">A note from Eduard</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">02</span>
+  </div>
+  <div class="two-col">
+    <div>
+      <h2 class="headline" style="margin:0;">The bank you<br/>asked us about.</h2>
+    </div>
+    <div class="note">
+      <p>Hi,</p>
+      <p>
+        Thanks for replying to our note about this building. Here's the
+        fuller picture. This is a new addition to our Discovery Portfolio,
+        from a partnership we've been building for months with the
+        developer: a landmarked savings bank with a banking hall on a scale
+        that's very hard to find anywhere in New York.
+      </p>
+      <p>
+        It was built in 1908 to impress, and it still does. A ring of
+        columns around the center of the hall, an ornamental ceiling with
+        historic chandeliers, marble floors, the original teller stations,
+        and a real bank vault downstairs with its doors fixed open.
+      </p>
+      <p>
+        Below you'll find every space, with plans, dimensions and
+        capacities. When a format comes to mind, write me or the team and
+        we'll set up a walkthrough.
+      </p>
+      <p class="signature">— Eduard</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     AT A GLANCE
+     ============================================================ -->
+<section>
+  <div class="divider-label">
+    <span class="text">The building at a glance</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">03</span>
+  </div>
+  <h2 class="headline">A temple to money, now open for culture.</h2>
+  <p class="lede" style="max-width: 780px;">
+    Built in 1906–1908 by Mowbray &amp; Uffinger and enlarged in 1931–32 by
+    Halsey, McCormack &amp; Helmer, who added Art Deco bronze and marble
+    detailing to the rotunda. Behind a marble façade with
+    columns and a dome, both the exterior and the interior are New York
+    City landmarks, designated in 1994. Today the bank anchors a new
+    development, and its interior has been restored.
+  </p>
+
+  <div class="stat-grid">
+    <div class="stat">
+      <div class="num">1908</div>
+      <div class="label">Built</div>
+    </div>
+    <div class="stat">
+      <div class="num">17,676</div>
+      <div class="label">Sq ft main hall</div>
+    </div>
+    <div class="stat">
+      <div class="num">2,500</div>
+      <div class="label">Guests standing</div>
+    </div>
+    <div class="stat">
+      <div class="num">4</div>
+      <div class="label">Bookable spaces</div>
+    </div>
+  </div>
+
+  <div class="two-col balanced" style="margin-top: 64px;">
+    <div>
+      <div class="eyebrow">Why producers ask about it</div>
+      <div class="feature-list">
+        <div class="f"><strong>Scale that's rare in New York.</strong>
+          Close to 18,000 sq ft in a single historic room: full runway
+          shows, car launches and large brand activations fit without
+          splitting the audience.</div>
+        <div class="f"><strong>Architecture that does the dressing.</strong>
+          A ring of marble columns under a painted dome, a coffered gilded
+          ceiling, historic chandeliers and the original teller counters.
+          The room reads on camera before a single piece goes in.</div>
+        <div class="f"><strong>A real vault.</strong>
+          Downstairs, the original vault door stands open: VIP lounge,
+          after-party, installation or set.</div>
+        <div class="f"><strong>An arrival worth photographing.</strong>
+          A landmarked marble façade with columns and a dome, made for
+          red carpets and step-and-repeats.</div>
+        <div class="f"><strong>Three street entrances.</strong>
+          Albee Square, DeKalb Avenue and Flatbush Avenue Extension, so
+          guests, talent and crew can each arrive their own way.</div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Production-friendly</div>
+      <div class="feature-list">
+        <div class="f"><strong>Projection mapping and façade lighting.</strong>
+          Light the landmark inside and out, without touching it.</div>
+        <div class="f"><strong>Event power on site.</strong>
+          A 400-amp temporary event panel for lighting, AV, LED walls
+          and vehicle displays.</div>
+        <div class="f"><strong>Load-in around the clock.</strong>
+          24/7 load-in, with curbside access on DeKalb Avenue arranged
+          with a city permit.</div>
+        <div class="f"><strong>Back-of-house below.</strong>
+          Catering prep and production staging in the cellar, keeping
+          the hall clear for guests.</div>
+        <div class="f"><strong>Your vendors, your crew.</strong>
+          No union requirements: bring the production team you trust.</div>
+        <div class="f"><strong>Film, TV and photo.</strong>
+          Open to productions, from features to campaigns and editorials.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     MAIN LEVEL
+     ============================================================ -->
+<section class="cream-deep full">
+  <div class="inner">
+    <div class="divider-label">
+      <span class="text">Main level &middot; Banking Hall, Mezzanine &amp; Prism</span>
+      <span class="line"></span>
+      <span class="text" style="color:var(--ink-soft);">04</span>
+    </div>
+    <h2 class="headline">One hall, nearly 18,000 square feet.</h2>
+    <p class="lede" style="max-width: 780px;">
+      The banking hall is the heart of the building: a six-sided room of
+      roughly 106 × 104 feet, organized around a ring of twelve columns
+      at its center. A mezzanine looks over it, and the Prism next door
+      extends the floor.
+    </p>
+
+    <div class="mosaic-grid" style="margin-top: 40px;">
+      <div class="frame hero"><img src="img/venue/hall-tellers.jpg" alt="The banking hall: marble floor, original teller counters and the bronze entrance" /></div>
+      <div class="frame"><img src="img/venue/mezzanine-view.jpg" alt="The mezzanine seen between marble columns, with its painted walls and chandelier" /></div>
+      <div class="frame"><img src="img/venue/teller-line.jpg" alt="The teller line under tall windows and a historic chandelier" /></div>
+    </div>
+
+    <div class="plan-frame" style="margin-top: 24px;">
+      <img src="img/plans/main-level.jpg" alt="Main level plan: banking hall, Prism and the three entrances" />
+    </div>
+
+    <div class="two-col" style="margin-top: 48px;">
+      <div>
+        <div class="eyebrow">Spaces on this level</div>
+        <div class="specs">
+          <div class="space">
+            <span class="name">Main Hall
+              <span>The banking hall: ring of columns, ornamental ceiling, historic chandeliers, original teller stations. Runway, activations, galas.</span>
+            </span>
+            <span class="dims">17,676 SF<br/>2,526 standing</span>
+          </div>
+          <div class="space">
+            <span class="name">Mezzanine <span class="tag" style="display:inline-block;margin-top:0;">Optional</span>
+              <span>A raised room overlooking the hall: green room, VIP lounge or press area.</span>
+            </span>
+            <span class="dims">758 SF<br/>109 standing</span>
+          </div>
+          <div class="space">
+            <span class="name">Prism <span class="tag" style="display:inline-block;margin-top:0;">Optional</span>
+              <span>A contemporary extension off the hall. Guest use from December 2026; available now as back-of-house and storage.</span>
+            </span>
+            <span class="dims">3,149 SF<br/>450 standing</span>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="eyebrow">Mezzanine plan</div>
+        <div class="plan-frame" style="margin-top: 16px;">
+          <img src="img/plans/mezzanine.jpg" alt="Mezzanine plan, 758 sq ft" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     VAULT
+     ============================================================ -->
+<section>
+  <div class="divider-label">
+    <span class="text">Lower level &middot; The Vault</span>
+    <span class="line"></span>
+    <span class="text" style="color:var(--ink-soft);">05</span>
+  </div>
+  <div class="two-col">
+    <div>
+      <h2 class="headline">Downstairs, the original vault.</h2>
+      <p class="lede">
+        A marble stair leads down to the bank's vault. Its massive
+        original door, framed in a Greek-key surround, is now fixed
+        permanently open. It's a second
+        world under the main event.
+      </p>
+      <div class="specs">
+        <div class="space">
+          <span class="name">The Vault <span class="tag" style="display:inline-block;margin-top:0;">Optional</span>
+            <span>About 31 × 51 feet. VIP lounge, after-party, tasting room, installation or a set of its own.</span>
+          </span>
+          <span class="dims">1,795 SF<br/>257 standing</span>
+        </div>
+      </div>
+      <div class="plan-frame">
+        <img src="img/plans/vault.jpg" alt="Vault plan, 1,795 sq ft, original vault doors fixed open" />
+      </div>
+    </div>
+    <div>
+      <div class="mosaic-grid" style="grid-template-columns: 1fr; grid-auto-rows: auto; gap: 14px;">
+        <div class="frame"><img src="img/venue/vault-door.jpg" alt="The original vault door, open, framed in a Greek-key marble surround" /></div>
+        <div class="frame"><img src="img/venue/vault-stair.jpg" alt="The marble stair leading down to the vault" /></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     CAPACITY
+     ============================================================ -->
+<section class="cream-deep full">
+  <div class="inner">
+    <div class="divider-label">
+      <span class="text">Capacity</span>
+      <span class="line"></span>
+      <span class="text" style="color:var(--ink-soft);">06</span>
+    </div>
+    <h2 class="headline">From a 50-person dinner to 2,500 guests.</h2>
+    <div class="table-scroll">
+      <table class="cap-table">
+        <thead>
+          <tr><th>Space</th><th>Level</th><th class="n">Size (sq ft)</th><th class="n">Seated (tables)</th><th class="n">Standing</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="space-name">Main Hall</td><td>Main level</td><td class="n">17,676</td><td class="n">1,179</td><td class="n">2,526</td></tr>
+          <tr><td class="space-name">Prism<span>Optional &middot; guest use from Dec 2026</span></td><td>Main level</td><td class="n">3,149</td><td class="n">210</td><td class="n">450</td></tr>
+          <tr><td class="space-name">Vault<span>Optional</span></td><td>Lower level</td><td class="n">1,795</td><td class="n">120</td><td class="n">257</td></tr>
+          <tr><td class="space-name">Mezzanine<span>Optional</span></td><td>Mezzanine</td><td class="n">758</td><td class="n">51</td><td class="n">109</td></tr>
+          <tr class="total"><td>All spaces</td><td></td><td class="n">23,378</td><td class="n">1,560</td><td class="n">3,342</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="caption" style="margin-top: 20px; color: var(--ink-mute); text-transform: none; letter-spacing: 0.02em; font-size: 13px;">
+      Capacities per the building's event-area calculations. Stages and large
+      installations reduce the count. Large-format events run under a
+      Temporary Place of Assembly permit, which Cocoon coordinates; allow
+      30–45 days.
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     FORMATS CALLOUT
+     ============================================================ -->
+<section class="callout full">
+  <div class="inner">
+    <div class="superhead">What it's built for</div>
+    <h2 class="title" style="font-size: clamp(36px, 6vw, 72px); margin: 18px 0 8px;">
+      Imagine your<br/>brand here.
+    </h2>
+    <div class="formats">
+      <div class="fm"><h4>Runway &amp; Fashion Week</h4><p>A full show and audience in one historic room.</p></div>
+      <div class="fm"><h4>Brand activations</h4><p>Pop-ups, launches and immersive installations.</p></div>
+      <div class="fm"><h4>Car launches</h4><p>Vehicles on display under the ornamental ceiling.</p></div>
+      <div class="fm"><h4>Showrooms &amp; press days</h4><p>Collections against marble, bronze and columns.</p></div>
+      <div class="fm"><h4>Galas &amp; dinners</h4><p>Up to 1,179 seated in the main hall.</p></div>
+      <div class="fm"><h4>Film, TV &amp; photo</h4><p>Features, campaigns and editorials, with a vault to shoot in.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     NEXT STEPS
+     ============================================================ -->
+<section class="callout ink full">
+  <div class="inner">
+    <div class="superhead">Next steps</div>
+    <h2 class="title" style="font-size: clamp(32px, 5vw, 56px); margin: 18px 0 8px;">
+      See it in person.
+    </h2>
+    <div class="walk">
+      <div class="step">
+        <div class="step-num">01 &middot; Walkthrough</div>
+        <h4>Book a private visit</h4>
+        <p>Send us two or three times that suit you and we'll schedule a
+        walkthrough of the hall, mezzanine and vault.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02 &middot; Dates</div>
+        <h4>Place a soft hold</h4>
+        <p>Have a date in mind? We can place a courtesy hold while you
+        develop the concept and budget.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">03 &middot; Proposal</div>
+        <h4>Get a tailored proposal</h4>
+        <p>Tell us the format and headcount and we'll come back with a full
+        proposal: layouts, production specs, permits and pricing.</p>
+      </div>
+    </div>
+    <div style="margin-top: 56px;">
+      <a class="btn" href="mailto:info@cocoonflexspaces.com?subject=Casa%20Bank%20%E2%80%94%20walkthrough%20request">Request a walkthrough</a>
+      <span class="btn-sub">We'll reply with availability, floor plans and CAD files.</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer>
+  <div class="inner">
+    <div class="sig">
+      <p>
+        We'd love to show you this one in person. Even the film doesn't do
+        justice to standing under that dome.
+      </p>
+      <div class="name">Eduard Monteagudo Martín</div>
+      <div class="role">Cocoon Flex Spaces &middot; Sales</div>
+      <p style="margin-top: 14px; font-size: 14px;">
+        <a href="mailto:eduard@cocoonflexspaces.com">eduard@cocoonflexspaces.com</a><br/>
+        Sales Team &middot; <a href="mailto:info@cocoonflexspaces.com">info@cocoonflexspaces.com</a>
+      </p>
+    </div>
+    <div class="meta">
+      <strong>Casa Bank</strong><br/>
+      Downtown Brooklyn<br/>
+      Discovery Portfolio &middot; October 2026<br/>
+      Managed by Cocoon Flex Spaces<br/>
+      <a href="https://cocoonflexspaces.com">cocoonflexspaces.com</a><br/>
+      917-398-3938
+    </div>
+  </div>
+</footer>
+
+<!-- ============================================================
+     LIGHTBOX
+     ============================================================ -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Expanded media">
+  <span class="lb-close">✕ Close</span>
+  <div id="lb-content"></div>
+</div>
+
+<script>
+(function () {
+  var lb = document.getElementById('lightbox');
+  var content = document.getElementById('lb-content');
+  var film = document.getElementById('venue-film');
+
+  function openLightbox(node) {
+    content.innerHTML = '';
+    content.appendChild(node);
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    var v = content.querySelector('video');
+    if (v) v.pause();
+    lb.classList.remove('open');
+    content.innerHTML = '';
+    document.body.style.overflow = '';
+  }
+
+  lb.addEventListener('click', function (e) {
+    if (e.target.closest('.lb-video')) return;
+    closeLightbox();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  document.querySelectorAll('.mosaic-grid .frame img, .plan-frame img, .cover-image img')
+    .forEach(function (img) {
+      img.addEventListener('click', function () {
+        var fig = document.createElement('figure');
+        fig.className = 'lb-figure';
+        var big = document.createElement('img');
+        big.src = img.src;
+        big.alt = img.alt || '';
+        fig.appendChild(big);
+        if (img.alt) {
+          var c = document.createElement('figcaption');
+          c.className = 'lb-caption';
+          c.textContent = img.alt;
+          fig.appendChild(c);
+        }
+        openLightbox(fig);
+      });
+    });
+
+  document.getElementById('video-expand').addEventListener('click', function () {
+    var t = film ? film.currentTime : 0;
+    if (film) film.pause();
+    var frame = document.createElement('div');
+    frame.className = 'lb-frame';
+    var wrap = document.createElement('div');
+    wrap.className = 'lb-video';
+    var v = film.cloneNode(true);
+    v.removeAttribute('id');
+    v.autoplay = true;
+    v.addEventListener('loadedmetadata', function () { v.currentTime = t; });
+    wrap.appendChild(v);
+    frame.appendChild(wrap);
+    openLightbox(frame);
+  });
+})();
+</script>
+
+</body>
+</html>
